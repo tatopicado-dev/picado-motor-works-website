@@ -116,7 +116,7 @@ header{
   box-shadow:0 8px 24px rgba(0,0,0,0.08);
   transition:transform 0.25s ease, box-shadow 0.25s ease;
   max-width:1200px;
-  margin:0 auto;
+  margin:0 auto 30px auto;
 }
 
 .card-proyecto:hover {
@@ -326,18 +326,36 @@ header{
 
   <div class="card-proyecto">
     <div class="galeria-proyecto">
-      <img src="defender1.jpg" alt="Defender 110" onclick="abrirFoto(0)">
-      <img src="defender2.jpg" alt="Defender 110" onclick="abrirFoto(1)">
-      <img src="defender3.jpg" alt="Defender 110" onclick="abrirFoto(2)">
-      <img src="defender4.jpg" alt="Defender 110" onclick="abrirFoto(3)">
-      <img src="defender5.jpg" alt="Defender 110" onclick="abrirFoto(4)">
-      <img src="defender6.jpg" alt="Defender 110" onclick="abrirFoto(5)">
+      <img src="defender1.jpg" alt="Defender 110 Crew Cab 2009" onclick="abrirFoto('defender', 0)">
+      <img src="defender2.jpg" alt="Defender 110 Crew Cab 2009" onclick="abrirFoto('defender', 1)">
+      <img src="defender3.jpg" alt="Defender 110 Crew Cab 2009" onclick="abrirFoto('defender', 2)">
+      <img src="defender4.jpg" alt="Defender 110 Crew Cab 2009" onclick="abrirFoto('defender', 3)">
+      <img src="defender5.jpg" alt="Defender 110 Crew Cab 2009" onclick="abrirFoto('defender', 4)">
+      <img src="defender6.jpg" alt="Defender 110 Crew Cab 2009" onclick="abrirFoto('defender', 5)">
     </div>
 
     <div class="card-contenido">
       <h3>Defender 110 Crew Cab 2009</h3>
       <p>
         Restauración completa realizada por Picado Motor Works.
+      </p>
+    </div>
+  </div>
+
+  <div class="card-proyecto">
+    <div class="galeria-proyecto">
+      <img src="D1.jpg" alt="Segundo proyecto" onclick="abrirFoto('proyectoD', 0)">
+      <img src="D2.jpg" alt="Segundo proyecto" onclick="abrirFoto('proyectoD', 1)">
+      <img src="D3.jpg" alt="Segundo proyecto" onclick="abrirFoto('proyectoD', 2)">
+      <img src="D4.jpg" alt="Segundo proyecto" onclick="abrirFoto('proyectoD', 3)">
+      <img src="D5.jpg" alt="Segundo proyecto" onclick="abrirFoto('proyectoD', 4)">
+      <img src="D6.jpg" alt="Segundo proyecto" onclick="abrirFoto('proyectoD', 5)">
+    </div>
+
+    <div class="card-contenido">
+      <h3>Land Rover Defender 90 Soft Top 2003</h3>
+      <p>
+        Proyecto de restauración realizado por Picado Motor Works.
       </p>
     </div>
   </div>
@@ -386,20 +404,32 @@ z-index:1000;
 </div>
 
 <script>
-const fotosProyecto = [
-  "defender1.jpg",
-  "defender2.jpg",
-  "defender3.jpg",
-  "defender4.jpg",
-  "defender5.jpg",
-  "defender6.jpg"
-];
+const galerias = {
+  defender: [
+    "defender1.jpg",
+    "defender2.jpg",
+    "defender3.jpg",
+    "defender4.jpg",
+    "defender5.jpg",
+    "defender6.jpg"
+  ],
+  proyectoD: [
+    "D1.jpg",
+    "D2.jpg",
+    "D3.jpg",
+    "D4.jpg",
+    "D5.jpg",
+    "D6.jpg"
+  ]
+};
 
+let galeriaActual = "defender";
 let fotoActual = 0;
 
-function abrirFoto(indice){
+function abrirFoto(nombreGaleria, indice){
+  galeriaActual = nombreGaleria;
   fotoActual = indice;
-  document.getElementById("foto-grande").src = fotosProyecto[fotoActual];
+  document.getElementById("foto-grande").src = galerias[galeriaActual][fotoActual];
   document.getElementById("lightbox").style.display = "flex";
 }
 
@@ -411,17 +441,18 @@ function cerrarFoto(event){
 function cambiarFoto(direccion, event){
   if (event) event.stopPropagation();
 
+  const fotos = galerias[galeriaActual];
   fotoActual += direccion;
 
   if (fotoActual < 0){
-    fotoActual = fotosProyecto.length - 1;
+    fotoActual = fotos.length - 1;
   }
 
-  if (fotoActual >= fotosProyecto.length){
+  if (fotoActual >= fotos.length){
     fotoActual = 0;
   }
 
-  document.getElementById("foto-grande").src = fotosProyecto[fotoActual];
+  document.getElementById("foto-grande").src = fotos[fotoActual];
 }
 
 document.addEventListener("keydown", function(event) {
