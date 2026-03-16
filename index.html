@@ -181,24 +181,24 @@ gap:30px;
 justify-content:center;
 margin-top:20px;
 }
-  .galeria-proyecto{
+.galeria-proyecto{
 display:grid;
-grid-template-columns:repeat(3, 1fr);
-gap:10px;
-padding:10px;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin-bottom:20px;
 }
 
 .galeria-proyecto img{
 width:100%;
-height:200px;
+height:220px;
 object-fit:cover;
-border-radius:10px;
-display:block;
+border-radius:12px;
+cursor:pointer;
+transition:transform 0.25s ease;
 }
-  .galeria-proyecto{
-display:flex;
-flex-direction:column;
-gap:12px;
+
+.galeria-proyecto img:hover{
+transform:scale(1.04);
 }
 
 .foto-principal{
@@ -264,15 +264,37 @@ transform:scale(1.05);
 
 <div class="galeria-proyecto">
 
-<img class="foto-principal" src="defender1.jpg" alt="Defender 110 Crew Cab 2009">
+<a href="defender1.jpg" target="_blank">
+<img src="defender1.jpg" alt="Defender 110">
+</a>
 
-<div class="mini-galeria">
-<img src="defender2.jpg" alt="Defender">
-<img src="defender3.jpg" alt="Defender">
-<img src="defender4.jpg" alt="Defender">
-<img src="defender5.jpg" alt="Defender">
-<img src="defender1.jpg" alt="Defender">
-<img src="defender6.jpg" alt="Defender">  
+<a href="defender2.jpg" target="_blank">
+<img src="defender2.jpg" alt="Defender 110">
+</a>
+
+<a href="defender3.jpg" target="_blank">
+<img src="defender3.jpg" alt="Defender 110">
+</a>
+
+<a href="defender4.jpg" target="_blank">
+<img src="defender4.jpg" alt="Defender 110">
+</a>
+
+<a href="defender5.jpg" target="_blank">
+<img src="defender5.jpg" alt="Defender 110">
+</a>
+
+<a href="defender6.jpg" target="_blank">
+<img src="defender6.jpg" alt="Defender 110">
+</a>
+
+</div>
+
+<div class="card-contenido">
+<h3>Defender 110 Crew Cab 2009</h3>
+<p>
+Restauración completa realizada por Picado Motor Works.
+</p>
 </div>
 
 </div>
