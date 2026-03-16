@@ -6,294 +6,465 @@
 <title>Picado Motor Works</title>
 
 <style>
-.icono-social,
-.icono-whatsapp {
-  transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+*{
+  box-sizing:border-box;
 }
 
-.icono-social:hover,
-.icono-whatsapp:hover {
-  transform: scale(1.15);
-  opacity: 0.85;
-  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.18));
-}
-
-a{
-  color:#111111;
-  text-decoration:none;
-  font-weight:500;
-}
-
-a:hover{
-  color:#666666;
+html{
+  scroll-behavior:smooth;
 }
 
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:#FFFFFF;
+  background:#ffffff;
   color:#111111;
 }
 
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 40px;
-  background:#FFFFFF;
-  border-bottom:1px solid #E5E5E5;
+a{
+  color:inherit;
+  text-decoration:none;
 }
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
-
-.hero{
-  height:80vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:40px;
-}
-
-.hero h1{
-  font-size:60px;
-  max-width:800px;
-  margin-bottom:20px;
-}
-
-.hero p{
-  font-size:20px;
-  max-width:600px;
-  color:#666666;
-  line-height:1.6;
-}
-
-.section{
-  padding:80px 40px;
-  max-width:1200px;
-  margin:auto;
-}
-
-.section h2{
-  text-align:center;
-  font-size:36px;
-  margin-bottom:30px;
-  color:#111111;
-}
-
-.galeria {
-  max-width:1600px;
-  margin:0 auto;
-  padding:80px 20px;
-}
-
-.galeria h2 {
-  text-align:center;
-  font-size:36px;
-  margin-bottom:12px;
-  color:#111111;
-  letter-spacing:1px;
-}
-
-.galeria-subtitulo {
-  text-align:center;
-  color:#666666;
-  max-width:700px;
-  margin:0 auto 40px auto;
-  line-height:1.6;
-}
-
-.card-proyecto {
-  background:#FFFFFF;
-  border:1px solid #E5E5E5;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 8px 24px rgba(0,0,0,0.08);
-  transition:transform 0.25s ease, box-shadow 0.25s ease;
-  max-width:1200px;
-  margin:0 auto 30px auto;
-}
-
-.card-proyecto:hover {
-  transform:translateY(-6px);
-  box-shadow:0 14px 30px rgba(0,0,0,0.12);
-}
-
-.galeria-proyecto{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  padding:20px;
-}
-
-.galeria-proyecto img{
-  width:100%;
-  height:240px;
-  object-fit:cover;
-  border-radius:12px;
-  cursor:pointer;
-  transition:transform 0.25s ease;
+img{
+  max-width:100%;
   display:block;
 }
 
-.galeria-proyecto img:hover{
-  transform:scale(1.04);
+.icono-social,
+.icono-whatsapp{
+  transition:transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
 }
 
-.card-contenido {
-  padding:0 20px 20px 20px;
+.icono-social:hover,
+.icono-whatsapp:hover{
+  transform:scale(1.12);
+  opacity:0.9;
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,0.18));
 }
 
-.card-contenido h3 {
-  margin:0 0 8px 0;
-  font-size:22px;
+/* Header */
+header{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:20;
+  padding:24px 40px;
+}
+
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo img{
+  width:260px;
+  height:auto;
+}
+
+nav{
+  display:flex;
+  gap:32px;
+  align-items:center;
+}
+
+nav a{
+  color:#ffffff;
+  font-size:15px;
+  letter-spacing:0.04em;
+  font-weight:500;
+  opacity:0.95;
+}
+
+nav a:hover{
+  opacity:0.7;
+}
+
+/* Hero */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:flex-end;
+  color:#ffffff;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.18), rgba(0,0,0,0.58)),
+    url("defender1.jpg") center center / cover no-repeat;
+}
+
+.hero-contenido{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:1200px;
+  padding:0 40px 80px 40px;
+}
+
+.hero-etiqueta{
+  display:inline-block;
+  font-size:12px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+  opacity:0.9;
+}
+
+.hero h1{
+  font-size:78px;
+  line-height:0.95;
+  letter-spacing:-0.03em;
+  max-width:900px;
+  margin:0 0 22px 0;
+  font-weight:600;
+}
+
+.hero p{
+  max-width:620px;
+  font-size:18px;
+  line-height:1.7;
+  margin:0 0 34px 0;
+  color:rgba(255,255,255,0.86);
+}
+
+.hero-botones{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.boton-principal,
+.boton-secundario{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:0 22px;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:0.02em;
+  transition:all 0.25s ease;
+}
+
+.boton-principal{
+  background:#ffffff;
   color:#111111;
 }
 
-.card-contenido p {
-  margin:0;
+.boton-principal:hover{
+  background:#ececec;
+}
+
+.boton-secundario{
+  border:1px solid rgba(255,255,255,0.45);
+  color:#ffffff;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(8px);
+}
+
+.boton-secundario:hover{
+  background:rgba(255,255,255,0.14);
+}
+
+/* Layout */
+.seccion{
+  max-width:1280px;
+  margin:0 auto;
+  padding:110px 40px;
+}
+
+.seccion-pequena{
+  max-width:1100px;
+  margin:0 auto;
+  padding:90px 40px;
+}
+
+.etiqueta{
+  font-size:12px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:#7a7a7a;
+  margin-bottom:20px;
+}
+
+.titulo-seccion{
+  font-size:54px;
+  line-height:1.02;
+  letter-spacing:-0.03em;
+  margin:0 0 24px 0;
+  font-weight:600;
+  max-width:900px;
+}
+
+.texto-seccion{
+  max-width:780px;
+  font-size:18px;
+  line-height:1.8;
   color:#666666;
+  margin:0;
+}
+
+/* Manifesto */
+.manifiesto-grid{
+  display:grid;
+  grid-template-columns:1.15fr 0.85fr;
+  gap:60px;
+  align-items:start;
+}
+
+.manifiesto-lado{
+  padding-top:10px;
+}
+
+.dato{
+  padding:24px 0;
+  border-bottom:1px solid #ececec;
+}
+
+.dato-titulo{
+  font-size:13px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:#888888;
+  margin-bottom:8px;
+}
+
+.dato-texto{
+  font-size:18px;
   line-height:1.6;
+  color:#222222;
+}
+
+/* Access cards */
+.accesos{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:20px;
+}
+
+.acceso{
+  position:relative;
+  min-height:380px;
+  border-radius:24px;
+  overflow:hidden;
+  color:#ffffff;
+}
+
+.acceso::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  transition:transform 0.5s ease;
+}
+
+.acceso::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.68), rgba(0,0,0,0.18));
+}
+
+.acceso:hover::before{
+  transform:scale(1.04);
+}
+
+.acceso-contenido{
+  position:absolute;
+  inset:auto 0 0 0;
+  z-index:2;
+  padding:28px;
+}
+
+.acceso-kicker{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.2em;
+  opacity:0.82;
+  margin-bottom:10px;
+}
+
+.acceso h3{
+  margin:0 0 12px 0;
+  font-size:30px;
+  line-height:1.05;
+  letter-spacing:-0.02em;
+}
+
+.acceso p{
+  margin:0;
+  color:rgba(255,255,255,0.86);
+  line-height:1.7;
   font-size:15px;
+}
+
+.acceso-proyectos::before{
+  background-image:url("defender2.jpg");
+}
+
+.acceso-servicios::before{
+  background-image:url("D1.jpg");
+}
+
+.acceso-contacto::before{
+  background-image:url("defender4.jpg");
+}
+
+/* Statement strip */
+.franja{
+  border-top:1px solid #ececec;
+  border-bottom:1px solid #ececec;
+  background:#fafafa;
+}
+
+.franja-contenido{
+  max-width:1280px;
+  margin:0 auto;
+  padding:40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+}
+
+.franja-texto{
+  font-size:28px;
+  line-height:1.25;
+  letter-spacing:-0.02em;
+  max-width:780px;
+}
+
+.franja-link{
+  white-space:nowrap;
+  font-weight:600;
+  font-size:14px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+}
+
+/* Contacto */
+#contacto{
+  text-align:center;
+}
+
+.contacto-texto{
+  max-width:720px;
+  margin:0 auto 26px auto;
+  color:#666666;
+  line-height:1.8;
+  font-size:18px;
 }
 
 .redes-sociales{
   display:flex;
   gap:30px;
   justify-content:center;
-  margin-top:20px;
+  margin-top:22px;
 }
 
-.lightbox{
+.redes-sociales img{
+  width:35px;
+  height:auto;
+}
+
+/* Footer */
+footer{
+  padding:35px 40px 50px;
+  color:#888888;
+  font-size:13px;
+  text-align:center;
+}
+
+/* WhatsApp */
+.whatsapp-flotante{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.92);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
+  bottom:25px;
+  right:25px;
+  z-index:1000;
 }
 
-.lightbox-contenido{
-  position:relative;
-  width:100%;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+/* Responsive */
+@media (max-width: 1100px){
+  .hero h1{
+    font-size:62px;
+  }
+
+  .titulo-seccion{
+    font-size:44px;
+  }
+
+  .manifiesto-grid{
+    grid-template-columns:1fr;
+  }
+
+  .accesos{
+    grid-template-columns:1fr;
+  }
+
+  .acceso{
+    min-height:320px;
+  }
 }
 
-.lightbox img{
-  max-width:88%;
-  max-height:82%;
-  border-radius:10px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.35);
-}
+@media (max-width: 700px){
+  header{
+    padding:20px;
+  }
 
-.cerrar{
-  position:absolute;
-  top:24px;
-  right:34px;
-  font-size:42px;
-  color:#ffffff;
-  cursor:pointer;
-  z-index:10001;
-  background:none;
-  border:none;
-}
+  .header-inner{
+    flex-direction:column;
+    gap:20px;
+  }
 
-.flecha{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(255,255,255,0.12);
-  color:#ffffff;
-  border:none;
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  font-size:28px;
-  cursor:pointer;
-  z-index:10001;
-  transition:background 0.2s ease, transform 0.2s ease;
-}
+  nav{
+    gap:18px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
 
-.flecha:hover{
-  background:rgba(255,255,255,0.22);
-}
+  .logo img{
+    width:210px;
+  }
 
-.flecha-izquierda{
-  left:24px;
-}
-
-.flecha-derecha{
-  right:24px;
-}
-
-@media (max-width: 900px){
-  .galeria-proyecto{
-    grid-template-columns:repeat(2,1fr);
+  .hero-contenido{
+    padding:0 20px 60px 20px;
   }
 
   .hero h1{
     font-size:42px;
   }
-}
 
-@media (max-width: 600px){
-  header{
-    flex-direction:column;
-    gap:20px;
-    padding:20px;
-    text-align:center;
+  .hero p{
+    font-size:17px;
   }
 
-  .hero{
-    height:auto;
+  .seccion,
+  .seccion-pequena{
     padding:80px 20px;
   }
 
-  .hero h1{
+  .titulo-seccion{
     font-size:34px;
   }
 
-  .hero p{
-    font-size:18px;
+  .franja-contenido{
+    padding:30px 20px;
+    flex-direction:column;
+    align-items:flex-start;
   }
 
-  .galeria-proyecto{
-    grid-template-columns:1fr;
-  }
-
-  .galeria-proyecto img{
-    height:220px;
-  }
-
-  .flecha{
-    width:48px;
-    height:48px;
-    font-size:24px;
-  }
-
-  .flecha-izquierda{
-    left:12px;
-  }
-
-  .flecha-derecha{
-    right:12px;
-  }
-
-  .cerrar{
-    top:16px;
-    right:20px;
+  .franja-texto{
+    font-size:22px;
   }
 }
 </style>
@@ -302,134 +473,136 @@ header{
 <body>
 
 <header>
-  <div class="logo">
-    <img src="./pmw-logo.png" alt="Picado Motor Works logo" style="width:300px;height:auto;display:block;">
-  </div>
+  <div class="header-inner">
+    <div class="logo">
+      <img src="./pmw-logo.png" alt="Picado Motor Works logo">
+    </div>
 
- <nav style="display:flex; gap:30px; font-weight:500;">
-<a href="index.html">Inicio</a>
-<a href="proyectos.html">Proyectos</a>
-<a href="#contacto">Contacto</a>
-</nav>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
-  <h1>Clásicos restaurados con carácter</h1>
-  <p>
-    Restauración completa e importación de repuestos para vehículos clásicos.
-  </p>
+  <div class="hero-contenido">
+    <div class="hero-etiqueta">Picado Motor Works</div>
+    <h1>Clásicos restaurados con criterio.</h1>
+    <p>
+      Restauración completa, importación de repuestos y proyectos especiales ejecutados con una visión clara: devolver carácter, presencia y coherencia a cada vehículo.
+    </p>
+
+    <div class="hero-botones">
+      <a class="boton-principal" href="proyectos.html">Ver proyectos</a>
+      <a class="boton-secundario" href="#contacto">Iniciar conversación</a>
+    </div>
+  </div>
 </section>
 
+<section class="seccion">
+  <div class="manifiesto-grid">
+    <div>
+      <div class="etiqueta">Nuestra filosofía</div>
+      <h2 class="titulo-seccion">No se trata solo de restaurar un vehículo. Se trata de hacerlo correctamente.</h2>
+      <p class="texto-seccion">
+        En Picado Motor Works trabajamos sobre vehículos clásicos con una mirada integral: proporción, mecánica, acabados y presencia. Cada proyecto se desarrolla con sensibilidad estética, criterio técnico y una profunda apreciación por lo que hace especial a cada automóvil.
+      </p>
+    </div>
 
-<section class="section">
-  <h2>Contacto</h2>
+    <div class="manifiesto-lado">
+      <div class="dato">
+        <div class="dato-titulo">Enfoque</div>
+        <div class="dato-texto">Restauración completa y proyectos especiales con ejecución detallada.</div>
+      </div>
+
+      <div class="dato">
+        <div class="dato-titulo">Especialidad</div>
+        <div class="dato-texto">Vehículos clásicos, 4x4 icónicos e importación de repuestos seleccionados.</div>
+      </div>
+
+      <div class="dato">
+        <div class="dato-titulo">Resultado</div>
+        <div class="dato-texto">Máquinas que se ven correctas, funcionan correctamente y se sienten atemporales.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="etiqueta">Explorar</div>
+  <h2 class="titulo-seccion">Una forma más clara de descubrir Picado Motor Works.</h2>
+
+  <div class="accesos">
+    <a class="acceso acceso-proyectos" href="proyectos.html">
+      <div class="acceso-contenido">
+        <div class="acceso-kicker">Portafolio</div>
+        <h3>Proyectos</h3>
+        <p>Explore una selección de restorations y trabajos realizados por PMW.</p>
+      </div>
+    </a>
+
+    <a class="acceso acceso-servicios" href="#contacto">
+      <div class="acceso-contenido">
+        <div class="acceso-kicker">Servicios</div>
+        <h3>Restauración & repuestos</h3>
+        <p>Restauraciones completas, importación de repuestos y asesoría para proyectos especiales.</p>
+      </div>
+    </a>
+
+    <a class="acceso acceso-contacto" href="#contacto">
+      <div class="acceso-contenido">
+        <div class="acceso-kicker">Contacto</div>
+        <h3>Converse con nosotros</h3>
+        <p>Cuéntenos sobre su vehículo, su proyecto o las piezas que necesita localizar.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="franja">
+  <div class="franja-contenido">
+    <div class="franja-texto">
+      Cada vehículo clásico merece una restauración con intención, no únicamente una reparación.
+    </div>
+    <a class="franja-link" href="proyectos.html">Ver portafolio</a>
+  </div>
+</section>
+
+<section class="seccion-pequena" id="contacto">
+  <div class="etiqueta">Contacto</div>
+  <h2 class="titulo-seccion" style="margin-left:auto;margin-right:auto;text-align:center;max-width:760px;">
+    Hablemos sobre su próximo proyecto.
+  </h2>
+  <p class="contacto-texto">
+    Si está buscando restaurar un clásico, localizar repuestos o desarrollar un proyecto especial, será un gusto conocer su visión.
+  </p>
 
   <div class="redes-sociales">
     <a href="https://www.instagram.com/picado.motorworks" target="_blank">
-      <img class="icono-social" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" style="width:35px;height:auto;" alt="Instagram">
+      <img class="icono-social" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
     </a>
 
     <a href="https://www.facebook.com/108809252322125" target="_blank">
-      <img class="icono-social" src="https://cdn-icons-png.flaticon.com/512/733/733547.png" style="width:35px;height:auto;" alt="Facebook">
+      <img class="icono-social" src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
     </a>
 
     <a href="https://www.tiktok.com/@picado.motor.works" target="_blank">
-      <img class="icono-social" src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" style="width:35px;height:auto;" alt="TikTok">
+      <img class="icono-social" src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" alt="TikTok">
     </a>
   </div>
 </section>
 
-<a href="https://wa.me/message/S6Y4QUKEUPAXH1" target="_blank" style="
-position:fixed;
-bottom:25px;
-right:25px;
-z-index:1000;
-">
+<footer>
+  © Picado Motor Works
+</footer>
+
+<a class="whatsapp-flotante" href="https://wa.me/message/S6Y4QUKEUPAXH1" target="_blank">
   <img class="icono-whatsapp" src="https://cdn-icons-png.flaticon.com/512/733/733585.png" 
-  style="
-  width:60px;
-  height:auto;
-  filter:drop-shadow(0 4px 10px rgba(0,0,0,0.15));
-  "
+  style="width:60px;height:auto;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.15));"
   alt="WhatsApp">
 </a>
-
-<div id="lightbox" class="lightbox" onclick="cerrarFoto(event)">
-  <div class="lightbox-contenido">
-    <button class="cerrar" onclick="cerrarFoto(event)">✕</button>
-    <button class="flecha flecha-izquierda" onclick="cambiarFoto(-1, event)">❮</button>
-    <img id="foto-grande" src="" alt="Foto ampliada">
-    <button class="flecha flecha-derecha" onclick="cambiarFoto(1, event)">❯</button>
-  </div>
-</div>
-
-<script>
-const galerias = {
-  defender: [
-    "defender1.jpg",
-    "defender2.jpg",
-    "defender3.jpg",
-    "defender4.jpg",
-    "defender5.jpg",
-    "defender6.jpg"
-  ],
-  proyectoD: [
-    "D1.jpg",
-    "D2.jpg",
-    "D3.jpg",
-    "D4.jpg",
-    "D5.jpg",
-    "D6.jpg"
-  ]
-};
-
-let galeriaActual = "defender";
-let fotoActual = 0;
-
-function abrirFoto(nombreGaleria, indice){
-  galeriaActual = nombreGaleria;
-  fotoActual = indice;
-  document.getElementById("foto-grande").src = galerias[galeriaActual][fotoActual];
-  document.getElementById("lightbox").style.display = "flex";
-}
-
-function cerrarFoto(event){
-  if (event) event.stopPropagation();
-  document.getElementById("lightbox").style.display = "none";
-}
-
-function cambiarFoto(direccion, event){
-  if (event) event.stopPropagation();
-
-  const fotos = galerias[galeriaActual];
-  fotoActual += direccion;
-
-  if (fotoActual < 0){
-    fotoActual = fotos.length - 1;
-  }
-
-  if (fotoActual >= fotos.length){
-    fotoActual = 0;
-  }
-
-  document.getElementById("foto-grande").src = fotos[fotoActual];
-}
-
-document.addEventListener("keydown", function(event) {
-  const lightbox = document.getElementById("lightbox");
-  const estaAbierto = lightbox.style.display === "flex";
-
-  if (!estaAbierto) return;
-
-  if (event.key === "Escape") cerrarFoto();
-  if (event.key === "ArrowRight") cambiarFoto(1);
-  if (event.key === "ArrowLeft") cambiarFoto(-1);
-});
-
-document.querySelector(".lightbox-contenido").addEventListener("click", function(event){
-  event.stopPropagation();
-});
-</script>
 
 </body>
 </html>
