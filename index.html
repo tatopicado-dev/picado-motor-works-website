@@ -109,34 +109,34 @@ color:#666666;
 line-height:1.6;
 }
 
-<section class="galeria">
+.galeria {
+max-width: 1200px;
+margin: 0 auto;
+padding: 80px 20px;
+}
 
-  <h2>Proyecto destacado</h2>
-  <p class="galeria-subtitulo">
-    Un ejemplo de cómo se presentarán los proyectos realizados por Picado Motor Works.
-  </p>
+.galeria h2 {
+text-align: center;
+font-size: 36px;
+margin-bottom: 12px;
+color: #111111;
+letter-spacing: 1px;
+}
 
-  <div class="proyecto-destacado">
-    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80" alt="Range Rover Classic restaurado">
+.galeria-subtitulo {
+text-align: center;
+color: #666666;
+max-width: 700px;
+margin: 0 auto 40px auto;
+line-height: 1.6;
+}
 
-    <div class="proyecto-info">
-      <h3>Range Rover Classic</h3>
+.grid-galeria {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 24px;
+}
 
-      <p>
-        Proyecto de restauración integral enfocado en devolver presencia, confiabilidad mecánica
-        y carácter original a uno de los íconos más importantes del mundo automotriz clásico.
-      </p>
-
-      <ul>
-        <li>Restauración completa</li>
-        <li>Reconstrucción mecánica</li>
-        <li>Detalle interior y exterior</li>
-        <li>Importación de repuestos</li>
-      </ul>
-    </div>
-  </div>
-
-</section>
 .card-proyecto {
 background:#FFFFFF;
 border: 1px solid #E5E5E5;
@@ -180,41 +180,6 @@ display:flex;
 gap:30px;
 justify-content:center;
 margin-top:20px;
-}
-  .proyecto-destacado{
-display:grid;
-grid-template-columns:1.1fr 0.9fr;
-gap:50px;
-align-items:center;
-margin-top:50px;
-}
-
-.proyecto-destacado img{
-width:100%;
-height:520px;
-object-fit:cover;
-border-radius:18px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-}
-
-.proyecto-info h3{
-font-size:34px;
-margin:0 0 20px 0;
-color:#111111;
-}
-
-.proyecto-info p{
-color:#666666;
-line-height:1.7;
-margin-bottom:20px;
-font-size:16px;
-}
-
-.proyecto-info ul{
-padding-left:20px;
-margin:0;
-color:#444444;
-line-height:1.8;
 }
 </style>
 
@@ -328,4 +293,3 @@ z-index:1000;
 
 </body>
 </html>}
-
