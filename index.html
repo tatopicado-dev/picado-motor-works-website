@@ -332,6 +332,414 @@ header{
       <img src="defender3.jpg" alt="Defender 110" onclick="abrirFoto(2)">
       <img src="defender4.jpg" alt="Defender 110" onclick="abrirFoto(3)">
       <img src="defender5.jpg" alt="Defender 110" onclick="abrirFoto(4)">
+      <img src="defender6.jpg" alt="Defender 110" onclick="abrirFoto(5)">
+    </div>
+
+    <div class="card-contenido">
+      <h3>Defender 110 Crew Cab 2009</h3>
+      <p>
+        Restauración completa realizada por Picado Motor Works.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Contacto</h2>
+
+  <div class="redes-sociales">
+    <a href="https://www.instagram.com/picado.motorworks" target="_blank">
+      <img class="icono-social" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" style="width:35px;height:auto;" alt="Instagram">
+    </a>
+
+    <a href="https://www.facebook.com/108809252322125" target="_blank">
+      <img class="icono-social" src="https://cdn-icons-png.flaticon.com/512/733/733547.png" style="width:35px;height:auto;" alt="Facebook">
+    </a>
+
+    <a href="https://www.tiktok.com/@picado.motor.works" target="_blank">
+      <img class="icono-social" src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" style="width:35px;height:auto;" alt="TikTok">
+    </a>
+  </div>
+</section>
+
+<a href="https://wa.me/message/S6Y4QUKEUPAXH1" target="_blank" style="
+position:fixed;
+bottom:25px;
+right:25px;
+z-index:1000;
+">
+  <img class="icono-whatsapp" src="https://cdn-icons-png.flaticon.com/512/733/733585.png" 
+  style="
+  width:60px;
+  height:auto;
+  filter:drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+  "
+  alt="WhatsApp">
+</a>
+
+<div id="lightbox" class="lightbox" onclick="cerrarFoto(event)">
+  <div class="lightbox-contenido">
+    <button class="cerrar" onclick="cerrarFoto(event)">✕</button>
+    <button class="flecha flecha-izquierda" onclick="cambiarFoto(-1, event)">❮</button>
+    <img id="foto-grande" src="" alt="Foto ampliada">
+    <button class="flecha flecha-derecha" onclick="cambiarFoto(1, event)">❯</button>
+  </div>
+</div>
+
+<script>
+const fotosProyecto = [
+  "defender1.jpg",
+  "defender2.jpg",
+  "defender3.jpg",
+  "defender4.jpg",
+  "defender5.jpg",
+  "defender6.jpg"
+];
+
+let fotoActual = 0;
+
+function abrirFoto(indice){
+  fotoActual = indice;
+  document.getElementById("foto-grande").src = fotosProyecto[fotoActual];
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function cerrarFoto(event){
+  if (event) event.stopPropagation();
+  document.getElementById("lightbox").style.display = "none";
+}
+
+function cambiarFoto(direccion, event){
+  if (event) event.stopPropagation();
+
+  fotoActual += direccion;
+
+  if (fotoActual < 0){
+    fotoActual = fotosProyecto.length - 1;
+  }
+
+  if (fotoActual >= fotosProyecto.length){
+    fotoActual = 0;
+  }
+
+  document.getElementById("foto-grande").src = fotosProyecto[fotoActual];
+}
+
+document.addEventListener("keydown", function(event) {
+  const lightbox = document.getElementById("lightbox");
+  const estaAbierto = lightbox.style.display === "flex";
+
+  if (!estaAbierto) return;
+
+  if (event.key === "Escape") cerrarFoto();
+  if (event.key === "ArrowRight") cambiarFoto(1);
+  if (event.key === "ArrowLeft") cambiarFoto(-1);
+});
+
+document.querySelector(".lightbox-contenido").addEventListener("click", function(event){
+  event.stopPropagation();
+});
+</script>
+
+</body>
+</html>
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+  background:#FFFFFF;
+  border-bottom:1px solid #E5E5E5;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.hero{
+  height:80vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px;
+}
+
+.hero h1{
+  font-size:60px;
+  max-width:800px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:20px;
+  max-width:600px;
+  color:#666666;
+  line-height:1.6;
+}
+
+.section{
+  padding:80px 40px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.section h2{
+  text-align:center;
+  font-size:36px;
+  margin-bottom:30px;
+  color:#111111;
+}
+
+.galeria {
+  max-width:1600px;
+  margin:0 auto;
+  padding:80px 20px;
+}
+
+.galeria h2 {
+  text-align:center;
+  font-size:36px;
+  margin-bottom:12px;
+  color:#111111;
+  letter-spacing:1px;
+}
+
+.galeria-subtitulo {
+  text-align:center;
+  color:#666666;
+  max-width:700px;
+  margin:0 auto 40px auto;
+  line-height:1.6;
+}
+
+.card-proyecto {
+  background:#FFFFFF;
+  border:1px solid #E5E5E5;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,0,0,0.08);
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.card-proyecto:hover {
+  transform:translateY(-6px);
+  box-shadow:0 14px 30px rgba(0,0,0,0.12);
+}
+
+.galeria-proyecto{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  padding:20px;
+}
+
+.galeria-proyecto img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  border-radius:12px;
+  cursor:pointer;
+  transition:transform 0.25s ease;
+  display:block;
+}
+
+.galeria-proyecto img:hover{
+  transform:scale(1.04);
+}
+
+.card-contenido {
+  padding:0 20px 20px 20px;
+}
+
+.card-contenido h3 {
+  margin:0 0 8px 0;
+  font-size:22px;
+  color:#111111;
+}
+
+.card-contenido p {
+  margin:0;
+  color:#666666;
+  line-height:1.6;
+  font-size:15px;
+}
+
+.redes-sociales{
+  display:flex;
+  gap:30px;
+  justify-content:center;
+  margin-top:20px;
+}
+
+/* Lightbox */
+.lightbox{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.92);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.lightbox-contenido{
+  position:relative;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.lightbox img{
+  max-width:88%;
+  max-height:82%;
+  border-radius:10px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+
+.cerrar{
+  position:absolute;
+  top:24px;
+  right:34px;
+  font-size:42px;
+  color:#ffffff;
+  cursor:pointer;
+  z-index:10001;
+  background:none;
+  border:none;
+}
+
+.flecha{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(255,255,255,0.12);
+  color:#ffffff;
+  border:none;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  font-size:28px;
+  cursor:pointer;
+  z-index:10001;
+  transition:background 0.2s ease, transform 0.2s ease;
+}
+
+.flecha:hover{
+  background:rgba(255,255,255,0.22);
+}
+
+.flecha-izquierda{
+  left:24px;
+}
+
+.flecha-derecha{
+  right:24px;
+}
+
+@media (max-width: 900px){
+  .galeria-proyecto{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+}
+
+@media (max-width: 600px){
+  header{
+    flex-direction:column;
+    gap:20px;
+    padding:20px;
+    text-align:center;
+  }
+
+  .hero{
+    height:auto;
+    padding:80px 20px;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
+
+  .hero p{
+    font-size:18px;
+  }
+
+  .galeria-proyecto{
+    grid-template-columns:1fr;
+  }
+
+  .galeria-proyecto img{
+    height:220px;
+  }
+
+  .flecha{
+    width:48px;
+    height:48px;
+    font-size:24px;
+  }
+
+  .flecha-izquierda{
+    left:12px;
+  }
+
+  .flecha-derecha{
+    right:12px;
+  }
+
+  .cerrar{
+    top:16px;
+    right:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="./pmw-logo.png" alt="Picado Motor Works logo" style="width:300px;height:auto;display:block;">
+  </div>
+
+  <nav>
+    Vehículos clásicos • Restauración • Importación
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Clásicos restaurados con carácter</h1>
+  <p>
+    Restauración completa e importación de repuestos para vehículos clásicos.
+  </p>
+</section>
+
+<section class="galeria">
+  <h2>Galería de proyectos</h2>
+  <p class="galeria-subtitulo">
+    Una selección de restauraciones y proyectos especiales realizados por Picado Motor Works.
+  </p>
+
+  <div class="card-proyecto">
+    <div class="galeria-proyecto">
+      <img src="defender1.jpg" alt="Defender 110" onclick="abrirFoto(0)">
+      <img src="defender2.jpg" alt="Defender 110" onclick="abrirFoto(1)">
+      <img src="defender3.jpg" alt="Defender 110" onclick="abrirFoto(2)">
+      <img src="defender4.jpg" alt="Defender 110" onclick="abrirFoto(3)">
+      <img src="defender5.jpg" alt="Defender 110" onclick="abrirFoto(4)">
       <img src="defender6.jpg" alt="Defender 110" onclick="abrirFoto(0)">
     </div>
 
