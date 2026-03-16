@@ -274,6 +274,63 @@ font-size:40px;
 color:white;
 cursor:pointer;
 }
+  .lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.92);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+
+.lightbox img{
+max-width:88%;
+max-height:82%;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+
+.cerrar{
+position:absolute;
+top:24px;
+right:34px;
+font-size:42px;
+color:#ffffff;
+cursor:pointer;
+z-index:10001;
+}
+
+.flecha{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(255,255,255,0.12);
+color:#ffffff;
+border:none;
+width:56px;
+height:56px;
+border-radius:50%;
+font-size:28px;
+cursor:pointer;
+z-index:10001;
+transition:background 0.2s ease, transform 0.2s ease;
+}
+
+.flecha:hover{
+background:rgba(255,255,255,0.22);
+}
+
+.flecha-izquierda{
+left:24px;
+}
+
+.flecha-derecha{
+right:24px;
+}
 </style>
 
 </head>
@@ -310,14 +367,12 @@ cursor:pointer;
 <div class="card-proyecto">
 
 <div class="galeria-proyecto">
-
-<img src="defender1.jpg" onclick="abrirFoto(this.src)">
-<img src="defender2.jpg" onclick="abrirFoto(this.src)">
-<img src="defender3.jpg" onclick="abrirFoto(this.src)">
-<img src="defender4.jpg" onclick="abrirFoto(this.src)">
-<img src="defender5.jpg" onclick="abrirFoto(this.src)">
-<img src="defender6.jpg" onclick="abrirFoto(this.src)">
-
+  <img src="defender1.jpg" alt="Defender 110" onclick="abrirFoto(this.src)">
+  <img src="defender2.jpg" alt="Defender 110" onclick="abrirFoto(this.src)">
+  <img src="defender3.jpg" alt="Defender 110" onclick="abrirFoto(this.src)">
+  <img src="defender4.jpg" alt="Defender 110" onclick="abrirFoto(this.src)">
+  <img src="defender5.jpg" alt="Defender 110" onclick="abrirFoto(this.src)">
+  <img src="defender6.jpg" alt="Defender 110" onclick="abrirFoto(this.src)">
 </div>
 
 <div class="card-contenido">
@@ -398,6 +453,53 @@ function cerrarFoto(){
 document.getElementById("lightbox").style.display="none";
 }
 
+</script>
+  <div id="lightbox" class="lightbox">
+  <span class="cerrar" onclick="cerrarFoto()">✕</span>
+
+  <button class="flecha flecha-izquierda" onclick="cambiarFoto(-1)">❮</button>
+
+  <img id="foto-grande" src="" alt="Foto ampliada">
+
+  <button class="flecha flecha-derecha" onclick="cambiarFoto(1)">❯</button>
+</div>
+  <script>
+const fotosProyecto = [
+  "defender1.jpg",
+  "defender2.jpg",
+  "defender3.jpg",
+  "defender4.jpg",
+  "defender5.jpg",
+  "defender1.jpg"
+];
+
+let fotoActual = 0;
+
+function abrirFoto(src){
+  fotoActual = fotosProyecto.indexOf(src);
+  if (fotoActual === -1) fotoActual = 0;
+
+  document.getElementById("foto-grande").src = fotosProyecto[fotoActual];
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function cerrarFoto(){
+  document.getElementById("lightbox").style.display = "none";
+}
+
+function cambiarFoto(direccion){
+  fotoActual += direccion;
+
+  if (fotoActual < 0){
+    fotoActual = fotosProyecto.length - 1;
+  }
+
+  if (fotoActual >= fotosProyecto.length){
+    fotoActual = 0;
+  }
+
+  document.getElementById("foto-grande").src = fotosProyecto[fotoActual];
+}
 </script>
 </body>
 </html>}
