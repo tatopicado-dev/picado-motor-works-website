@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyectos | Picado Motor Works</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#ffffff;
+color:#111;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+border-bottom:1px solid #E5E5E5;
+}
+
+nav{
+display:flex;
+gap:30px;
+}
+
+nav a{
+text-decoration:none;
+color:#111;
+font-weight:500;
+}
+
+nav a:hover{
+color:#666;
+}
+
+.section{
+max-width:1400px;
+margin:auto;
+padding:80px 40px;
+}
+
+.section h1{
+text-align:center;
+font-size:42px;
+margin-bottom:10px;
+}
+
+.section p{
+text-align:center;
+color:#666;
+margin-bottom:50px;
+}
+
+.card-proyecto{
+background:#fff;
+border:1px solid #E5E5E5;
+border-radius:18px;
+overflow:hidden;
+margin-bottom:40px;
+}
+
+.galeria-proyecto{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+padding:20px;
+}
+
+.galeria-proyecto img{
+width:100%;
+height:240px;
+object-fit:cover;
+border-radius:12px;
+cursor:pointer;
+transition:transform .25s;
+}
+
+.galeria-proyecto img:hover{
+transform:scale(1.05);
+}
+
+.card-contenido{
+padding:0 20px 20px;
+}
+
+.card-contenido h3{
+margin:0 0 10px;
+}
+
+.card-contenido p{
+margin:0;
+color:#666;
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.92);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:85%;
+border-radius:10px;
+}
+
+.cerrar{
+position:absolute;
+top:30px;
+right:40px;
+font-size:40px;
+color:#fff;
+cursor:pointer;
+}
+
+.flecha{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+width:60px;
+height:60px;
+border-radius:50%;
+border:none;
+font-size:30px;
+color:#fff;
+background:rgba(255,255,255,.2);
+cursor:pointer;
+}
+
+.flecha:hover{
+background:rgba(255,255,255,.35);
+}
+
+.flecha-izquierda{ left:30px }
+.flecha-derecha{ right:30px }
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<img src="pmw-logo.png" style="width:260px">
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="proyectos.html">Proyectos</a>
+<a href="index.html#contacto">Contacto</a>
+</nav>
+
+</header>
+
+<section class="section">
+
+<h1>Proyectos</h1>
+<p>Restauraciones realizadas por Picado Motor Works.</p>
+
+<!-- PROYECTO DEFENDER -->
+
+<div class="card-proyecto">
+
+<div class="galeria-proyecto">
+
+<img src="defender1.jpg" onclick="abrirFoto('defender',0)">
+<img src="defender2.jpg" onclick="abrirFoto('defender',1)">
+<img src="defender3.jpg" onclick="abrirFoto('defender',2)">
+<img src="defender4.jpg" onclick="abrirFoto('defender',3)">
+<img src="defender5.jpg" onclick="abrirFoto('defender',4)">
+<img src="defender6.jpg" onclick="abrirFoto('defender',5)">
+
+</div>
+
+<div class="card-contenido">
+<h3>Defender 110 Crew Cab 2009</h3>
+<p>Restauración completa realizada por Picado Motor Works.</p>
+</div>
+
+</div>
+
+
+<!-- PROYECTO DISCOVERY -->
+
+<div class="card-proyecto">
+
+<div class="galeria-proyecto">
+
+<img src="D1.jpg" onclick="abrirFoto('d',0)">
+<img src="D2.jpg" onclick="abrirFoto('d',1)">
+<img src="D3.jpg" onclick="abrirFoto('d',2)">
+<img src="D4.jpg" onclick="abrirFoto('d',3)">
+<img src="D5.jpg" onclick="abrirFoto('d',4)">
+<img src="D6.jpg" onclick="abrirFoto('d',5)">
+
+</div>
+
+<div class="card-contenido">
+<h3>Land Rover Discovery</h3>
+<p>Proyecto realizado por Picado Motor Works.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LIGHTBOX -->
+
+<div id="lightbox" class="lightbox">
+
+<span class="cerrar" onclick="cerrarFoto()">✕</span>
+
+<button class="flecha flecha-izquierda" onclick="cambiarFoto(-1)">❮</button>
+
+<img id="foto-grande">
+
+<button class="flecha flecha-derecha" onclick="cambiarFoto(1)">❯</button>
+
+</div>
+
+
+<script>
+
+const galerias={
+defender:[
+"defender1.jpg",
+"defender2.jpg",
+"defender3.jpg",
+"defender4.jpg",
+"defender5.jpg",
+"defender6.jpg"
+],
+
+d:[
+"D1.jpg",
+"D2.jpg",
+"D3.jpg",
+"D4.jpg",
+"D5.jpg",
+"D6.jpg"
+]
+}
+
+let galeriaActual="defender"
+let fotoActual=0
+
+function abrirFoto(nombre,i){
+
+galeriaActual=nombre
+fotoActual=i
+
+document.getElementById("foto-grande").src=galerias[galeriaActual][fotoActual]
+document.getElementById("lightbox").style.display="flex"
+
+}
+
+function cerrarFoto(){
+
+document.getElementById("lightbox").style.display="none"
+
+}
+
+function cambiarFoto(d){
+
+fotoActual+=d
+
+if(fotoActual<0) fotoActual=galerias[galeriaActual].length-1
+if(fotoActual>=galerias[galeriaActual].length) fotoActual=0
+
+document.getElementById("foto-grande").src=galerias[galeriaActual][fotoActual]
+
+}
+
+document.addEventListener("keydown",function(e){
+
+if(document.getElementById("lightbox").style.display!=="flex") return
+
+if(e.key==="ArrowRight") cambiarFoto(1)
+if(e.key==="ArrowLeft") cambiarFoto(-1)
+if(e.key==="Escape") cerrarFoto()
+
+})
+
+</script>
+
+</body>
+</html>
