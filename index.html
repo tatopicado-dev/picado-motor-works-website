@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Picado Motor Works</title>
+<link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
 
 <style>
 .icono-social,
@@ -227,6 +228,25 @@ transition:transform 0.25s ease;
 .mini-galeria img:hover{
 transform:scale(1.05);
 }
+  .galeria-proyecto{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin-bottom:20px;
+}
+
+.galeria-proyecto img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:12px;
+cursor:pointer;
+transition:transform 0.25s ease;
+}
+
+.galeria-proyecto img:hover{
+transform:scale(1.05);
+}
 </style>
 
 </head>
@@ -264,27 +284,27 @@ transform:scale(1.05);
 
 <div class="galeria-proyecto">
 
-<a href="defender1.jpg" target="_blank">
+<a href="defender1.jpg" data-lightbox="defender">
 <img src="defender1.jpg" alt="Defender 110">
 </a>
 
-<a href="defender2.jpg" target="_blank">
+<a href="defender2.jpg" data-lightbox="defender">
 <img src="defender2.jpg" alt="Defender 110">
 </a>
 
-<a href="defender3.jpg" target="_blank">
+<a href="defender3.jpg" data-lightbox="defender">
 <img src="defender3.jpg" alt="Defender 110">
 </a>
 
-<a href="defender4.jpg" target="_blank">
+<a href="defender4.jpg" data-lightbox="defender">
 <img src="defender4.jpg" alt="Defender 110">
 </a>
 
-<a href="defender5.jpg" target="_blank">
+<a href="defender5.jpg" data-lightbox="defender">
 <img src="defender5.jpg" alt="Defender 110">
 </a>
 
-<a href="defender6.jpg" target="_blank">
+<a href="defender6.jpg" data-lightbox="defender">
 <img src="defender6.jpg" alt="Defender 110">
 </a>
 
@@ -352,6 +372,6 @@ z-index:1000;
   "
   alt="WhatsApp">
 </a>
-
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
 </body>
 </html>}
