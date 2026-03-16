@@ -97,8 +97,8 @@ nav a:hover{
   position:absolute;
   inset:0;
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0.18), rgba(0,0,0,0.58)),
-    url("defender1.jpg") center center / cover no-repeat;
+    linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.62)),
+    url("puma1.jpg") center center / cover no-repeat;
 }
 
 .hero-contenido{
@@ -244,6 +244,88 @@ nav a:hover{
   color:#222222;
 }
 
+/* Editorial image strip */
+.editorial-grid{
+  display:grid;
+  grid-template-columns:1.3fr 0.7fr;
+  gap:18px;
+  margin-top:50px;
+}
+
+.editorial-principal,
+.editorial-secundaria{
+  position:relative;
+  overflow:hidden;
+  border-radius:24px;
+  min-height:560px;
+}
+
+.editorial-secundaria{
+  display:grid;
+  grid-template-rows:1fr 1fr;
+  gap:18px;
+  min-height:560px;
+}
+
+.editorial-imagen,
+.editorial-imagen-pequena{
+  position:relative;
+  overflow:hidden;
+  border-radius:24px;
+  min-height:100%;
+}
+
+.editorial-imagen img,
+.editorial-imagen-pequena img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 0.6s ease;
+}
+
+.editorial-imagen:hover img,
+.editorial-imagen-pequena:hover img{
+  transform:scale(1.04);
+}
+
+.editorial-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.58), rgba(0,0,0,0.12));
+}
+
+.editorial-texto{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:2;
+  padding:26px;
+  color:#ffffff;
+}
+
+.editorial-kicker{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.18em;
+  opacity:0.82;
+  margin-bottom:10px;
+}
+
+.editorial-texto h3{
+  margin:0 0 10px 0;
+  font-size:32px;
+  line-height:1.05;
+  letter-spacing:-0.02em;
+}
+
+.editorial-texto p{
+  margin:0;
+  line-height:1.7;
+  color:rgba(255,255,255,0.85);
+  font-size:15px;
+}
+
 /* Access cards */
 .accesos{
   display:grid;
@@ -313,11 +395,11 @@ nav a:hover{
 }
 
 .acceso-servicios::before{
-  background-image:url("D1.jpg");
+  background-image:url("puma2.jpg");
 }
 
 .acceso-contacto::before{
-  background-image:url("defender4.jpg");
+  background-image:url("D3.jpg");
 }
 
 /* Statement strip */
@@ -407,6 +489,20 @@ footer{
     grid-template-columns:1fr;
   }
 
+  .editorial-grid{
+    grid-template-columns:1fr;
+  }
+
+  .editorial-principal,
+  .editorial-secundaria{
+    min-height:auto;
+  }
+
+  .editorial-secundaria{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:none;
+  }
+
   .accesos{
     grid-template-columns:1fr;
   }
@@ -455,6 +551,15 @@ footer{
 
   .titulo-seccion{
     font-size:34px;
+  }
+
+  .editorial-secundaria{
+    grid-template-columns:1fr;
+  }
+
+  .editorial-principal,
+  .editorial-imagen-pequena{
+    min-height:320px;
   }
 
   .franja-contenido{
@@ -525,6 +630,42 @@ footer{
       <div class="dato">
         <div class="dato-titulo">Resultado</div>
         <div class="dato-texto">Máquinas que se ven correctas, funcionan correctamente y se sienten atemporales.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="editorial-grid">
+    <div class="editorial-principal">
+      <div class="editorial-imagen">
+        <img src="defender3.jpg" alt="Defender 110 Crew Cab 2009">
+        <div class="editorial-overlay"></div>
+        <div class="editorial-texto">
+          <div class="editorial-kicker">Proyecto destacado</div>
+          <h3>Defender 110 Crew Cab 2009</h3>
+          <p>Una interpretación sobria y bien ejecutada de un clásico utilitario con presencia y carácter.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="editorial-secundaria">
+      <div class="editorial-imagen-pequena">
+        <img src="D2.jpg" alt="Defender 90 Soft Top 2003">
+        <div class="editorial-overlay"></div>
+        <div class="editorial-texto">
+          <div class="editorial-kicker">Proyecto</div>
+          <h3 style="font-size:24px;">Defender 90 Soft Top 2003</h3>
+          <p>Un proyecto ligero, icónico y atemporal.</p>
+        </div>
+      </div>
+
+      <div class="editorial-imagen-pequena">
+        <img src="puma3.jpg" alt="Defender 110 Station Wagon 2009">
+        <div class="editorial-overlay"></div>
+        <div class="editorial-texto">
+          <div class="editorial-kicker">Proyecto</div>
+          <h3 style="font-size:24px;">Defender 110 Station Wagon 2009</h3>
+          <p>Un build con lenguaje visual limpio y presencia contundente.</p>
+        </div>
       </div>
     </div>
   </div>
