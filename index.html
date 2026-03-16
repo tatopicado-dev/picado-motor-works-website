@@ -160,12 +160,18 @@ backdrop-filter:blur(8px);
 background:rgba(255,255,255,.14);
 }
 
-/* LAYOUT */
+/* SECCIONES */
 
 .seccion{
 max-width:1280px;
 margin:0 auto;
 padding:110px 40px;
+}
+
+.seccion-pequena{
+max-width:1100px;
+margin:0 auto;
+padding:90px 40px;
 }
 
 .etiqueta{
@@ -191,34 +197,7 @@ line-height:1.8;
 color:#666;
 }
 
-/* MANIFESTO */
-
-.manifiesto-grid{
-display:grid;
-grid-template-columns:1.15fr .85fr;
-gap:60px;
-}
-
-.dato{
-padding:24px 0;
-border-bottom:1px solid #ececec;
-}
-
-.dato-titulo{
-font-size:13px;
-letter-spacing:.18em;
-text-transform:uppercase;
-color:#888;
-margin-bottom:8px;
-}
-
-.dato-texto{
-font-size:18px;
-line-height:1.6;
-color:#222;
-}
-
-/* EDITORIAL PROYECTOS */
+/* PROYECTOS */
 
 .editorial-grid{
 display:grid;
@@ -290,6 +269,19 @@ color:#fff;
 font-size:15px;
 }
 
+/* REDES */
+
+.redes-sociales{
+display:flex;
+gap:30px;
+justify-content:center;
+margin-top:22px;
+}
+
+.redes-sociales img{
+width:35px;
+}
+
 /* FOOTER */
 
 footer{
@@ -318,7 +310,7 @@ z-index:1000;
 <div class="header-inner">
 
 <div class="logo">
-<img src="./pmw-logo.png" alt="Picado Motor Works">
+<img src="./pmw-logo.png">
 </div>
 
 <nav>
@@ -368,9 +360,7 @@ Restauración completa, importación de repuestos y proyectos especiales ejecuta
 
 <h3>Defender 110 Crew Cab 2009</h3>
 
-<p>
-Una interpretación sobria y bien ejecutada de un clásico utilitario con presencia y carácter.
-</p>
+<p>Una interpretación sobria y bien ejecutada de un clásico utilitario con presencia y carácter.</p>
 
 </div>
 
@@ -415,6 +405,37 @@ Una interpretación sobria y bien ejecutada de un clásico utilitario con presen
 </div>
 
 </div>
+
+</div>
+
+</section>
+
+<section class="seccion-pequena" id="contacto">
+
+<div class="etiqueta">Contacto</div>
+
+<h2 class="titulo-seccion" style="text-align:center;">
+Hablemos sobre su próximo proyecto
+</h2>
+
+<p style="text-align:center;color:#666;max-width:700px;margin:auto;">
+Si está buscando restaurar un clásico, localizar repuestos o desarrollar un proyecto especial,
+será un gusto conocer su visión.
+</p>
+
+<div class="redes-sociales">
+
+<a href="https://www.instagram.com/picado.motorworks" target="_blank">
+<img class="icono-social" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+</a>
+
+<a href="https://www.facebook.com/108809252322125" target="_blank">
+<img class="icono-social" src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+</a>
+
+<a href="https://www.tiktok.com/@picado.motor.works" target="_blank">
+<img class="icono-social" src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png">
+</a>
 
 </div>
 
